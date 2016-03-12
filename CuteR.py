@@ -131,6 +131,9 @@ if __name__ == "__main__":
     cont = args.contrast if args.contrast else 1.0
     bri = args.brightness if args.brightness else 1.0
     colr = True if args.color else False
-    if colr and args.rgb:
-        rgb = tuple(args.rgb)
+    if colr :
+        if args.rgb:
+          rgb = tuple(args.rgb)
+        else:
+            rgb = (0,0,0)
     produce(txt,img,ver,ec,bri, cont ,color = colr,rgb=rgb).save(output)
