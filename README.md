@@ -1,26 +1,29 @@
 # CuteR
 Combine QRCode with picture
 
-Sample command
+## Sample
+
+Commands:
+
 ```bash
-python CuteR.py sample_input.png http://www.chinuno.com
-python CuteR.py -C -r 0 100 50  sample_input.png http://www.chinuno.com #with color mode
+python CuteR.py -c 20 -e H -o sample_output.png -v 10 sample_input.png http://www.chinuno.com
+python CuteR.py -C -r 0 100 50 sample_input.png http://www.chinuno.com #colourful mode
 ```
-### Sample input
+### Input
 
 ![image](https://github.com/chinuno-usami/CuteR/raw/master/sample_input.png)
 
-### Sample output
+### Output
 
 ![image](https://github.com/chinuno-usami/CuteR/raw/master/sample_output.png)
 
-### Sample output with color mode
+### Output (colourful mode)
 
-![image](https://github.com/chinuno-usami/CuteR/raw/master/sample_output_color.png)
+![image](https://github.com/chinuno-usami/CuteR/raw/master/sample_output_colourful.png)
 
 ## Usage
 
-### Import as module
+### As python module
 
 ```python
 Import CuteR as cr
@@ -35,13 +38,13 @@ arguments:
       :err_crt: QR error correct
       :bri: Brightness enhance
       :cont: Contrast enhance
-      :color: If color mode
+      :colourful: If colourful mode
       :rgb: color to replace black
       :returns: Produced image
 
-### As a command tool
+### As command tool
 
-usage: 
+usage:
 ```
 CuteR.py [-h] [-o OUTPUT] [-v VERSION] [-e {Q,H,M,L}] [-b BRIGHTNESS]
                 [-c CONTRAST] [-C] [-r R G B]
@@ -65,7 +68,7 @@ optional arguments:
                         Brightness enhance
   -c CONTRAST, --contrast CONTRAST
                         Contrast enhance
-  -C, --color           color mode
+  -C, --colourful       colourful mode
   -r R G B, --rgb R G B
                         color to replace black
 ```

@@ -24,7 +24,7 @@ def color_replace(image,color):
 
 
 def produce(txt,img,ver=5,err_crt = qrcode.constants.ERROR_CORRECT_H,bri = 1.0, cont = 1.0,\
-        color = False, rgb = (0,0,0)):
+        colourful = False, rgb = (0,0,0)):
     """
 
     :txt: QR text
@@ -33,7 +33,7 @@ def produce(txt,img,ver=5,err_crt = qrcode.constants.ERROR_CORRECT_H,bri = 1.0, 
     :err_crt: QR error correct
     :bri: Brightness enhance
     :cont: Contrast enhance
-    :color: If color mode
+    :colourful: If colourful mode
     :rgb: color to replace black
     :returns: Produced image
 
@@ -42,7 +42,7 @@ def produce(txt,img,ver=5,err_crt = qrcode.constants.ERROR_CORRECT_H,bri = 1.0, 
     qr.add_data(txt)
     qr.make(fit=True)
     img_qr = qr.make_image().convert('RGB')
-    if color and ( rgb != (0,0,0) ):
+    if colourful and ( rgb != (0,0,0) ):
         color_replace(img_qr,rgb)
     img_img = Image.open(img).convert('RGBA')
     img_size = None
@@ -58,7 +58,7 @@ def produce(txt,img,ver=5,err_crt = qrcode.constants.ERROR_CORRECT_H,bri = 1.0, 
     img_enh = enh.enhance(cont)
     enh = ImageEnhance.Brightness(img_enh)
     img_enh = enh.enhance(bri)
-    if not color:
+    if not colourful:
         img_enh = img_enh.convert('1')
         img_qr = img_qr.convert('1')
     img_res = img_qr
@@ -82,7 +82,7 @@ def produce(txt,img,ver=5,err_crt = qrcode.constants.ERROR_CORRECT_H,bri = 1.0, 
             # img_res.putpixel((x+12,y+12),img_img.getpixel((x,y)))
     pos = qrcode.util.pattern_position(qr.version)
     img_qr2 = qr.make_image().convert("RGB")
-    if color and ( rgb != (0,0,0) ):
+    if colourful and ( rgb != (0,0,0) ):
         color_replace(img_qr2,rgb)
     for i in pos:
         for j in pos:
@@ -108,7 +108,7 @@ if __name__ == "__main__":
     parser.add_argument("-e", "--errorcorrect", choices={"L","M","Q","H"}, help="Error correct")
     parser.add_argument("-b", "--brightness", type=float, help="Brightness enhance")
     parser.add_argument("-c", "--contrast", type=float, help="Contrast enhance")
-    parser.add_argument("-C", "--color", action="store_true",help="color mode")
+    parser.add_argument("-C", "--colourful", action="store_true",help="colourful mode")
     parser.add_argument("-r", "--rgb", nargs=3, metavar=('R','G','B'),type = int, help="color to replace black")
     args = parser.parse_args()
 
@@ -130,7 +130,7 @@ if __name__ == "__main__":
             ver = args.version
     cont = args.contrast if args.contrast else 1.0
     bri = args.brightness if args.brightness else 1.0
-    colr = True if args.color else False
+    colr = True if args.colourful else False
     if colr :
         if args.rgb:
           rgb = tuple(args.rgb)
@@ -138,4 +138,4 @@ if __name__ == "__main__":
             rgb = (0,0,0)
     else:
         rgb = (0,0,0)
-    produce(txt,img,ver,ec,bri, cont ,color = colr,rgb=rgb).save(output)
+    produce(txt,img,ver,ec,bri, cont ,colourful = colr,rgb=rgb).save(output)
