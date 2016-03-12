@@ -136,4 +136,6 @@ if __name__ == "__main__":
           rgb = tuple(args.rgb)
         else:
             rgb = (0,0,0)
+    else:
+        rgb = (0,0,0)
     produce(txt,img,ver,ec,bri, cont ,color = colr,rgb=rgb).save(output)
