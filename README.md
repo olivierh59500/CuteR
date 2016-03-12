@@ -6,20 +6,29 @@ Sample command
 python CuteR.py sample_input.png http://www.chinuno.com
 python CuteR.py -C -r 0 100 50  sample_input.png http://www.chinuno.com #with color mode
 ```
-Sample input
+### Sample input
+
 ![image](https://github.com/chinuno-usami/CuteR/raw/master/sample_input.png)
-Sample output
+
+### Sample output
+
 ![image](https://github.com/chinuno-usami/CuteR/raw/master/sample_output.png)
-Sample output with color mode
+
+### Sample output with color mode
+
 ![image](https://github.com/chinuno-usami/CuteR/raw/master/sample_output_color.png)
 
 ## Usage
+
 ### Import as module
+
 ```python
 Import CuteR as cr
 output = cr.produce(text,image)
 ```
+
 arguments:
+
       :txt: QR text
       :img: Image
       :ver: QR version
@@ -31,7 +40,10 @@ arguments:
       :returns: Produced image
 
 ### As a command tool
-usage: CuteR.py [-h] [-o OUTPUT] [-v VERSION] [-e {Q,H,M,L}] [-b BRIGHTNESS]
+
+usage: 
+```
+CuteR.py [-h] [-o OUTPUT] [-v VERSION] [-e {Q,H,M,L}] [-b BRIGHTNESS]
                 [-c CONTRAST] [-C] [-r R G B]
                 image text
 
@@ -56,7 +68,7 @@ optional arguments:
   -C, --color           color mode
   -r R G B, --rgb R G B
                         color to replace black
-
+```
 ## Dependencies
 - Python
 - qrcode
