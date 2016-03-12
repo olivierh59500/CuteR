@@ -45,10 +45,14 @@ def produce(txt,img,ver=5,err_crt = qrcode.constants.ERROR_CORRECT_H,bri = 1.0, 
     if color and ( rgb != (0,0,0) ):
         color_replace(img_qr,rgb)
     img_img = Image.open(img).convert('RGBA')
+    img_size = None
+
     if img_img.size[0] < img_img.size[1]:
         img_img = img_img.resize((img_qr.size[0]-24,int((img_qr.size[1]-24)*(1.0*img_img.size[1]/img_img.size[0]))))
+        img_size = img_img.size[0]
     else:
-        img_img = img_img.resize(((img_qr.size[0]-24)*(img_img.size[0]/img_img.size[1])),(img_qr.size[1]-24))
+        img_img = img_img.resize( (int((img_qr.size[0]-24)*(1.0*img_img.size[0]/img_img.size[1])),(img_qr.size[1]-24)) )
+        img_size = img_img.size[1]
 
     enh = ImageEnhance.Contrast(img_img)
     img_enh = enh.enhance(cont)
@@ -58,19 +62,19 @@ def produce(txt,img,ver=5,err_crt = qrcode.constants.ERROR_CORRECT_H,bri = 1.0, 
         img_enh = img_enh.convert('1')
         img_qr = img_qr.convert('1')
     img_res = img_qr
-    for x in range(0,img_enh.size[0]):
+    for x in range(0,img_size):
         if x >= 18 and x < 21 :
             continue
-        for y in range(0,img_enh.size[0]):
+        for y in range(0,img_size):
             if y >= 18 and y < 21 or (x%3 ==1 and  y%3 == 1):
                 continue
-            if x < 27 and (y < 27 or y > img_enh.size[0]-25):
+            if x < 27 and (y < 27 or y > img_size-25):
                 continue
-            if x > img_enh.size[0]-25 and (y < 27 ):
+            if x > img_size-25 and (y < 27 ):
                 continue
-            if qr.version >6 and x > img_enh.size[0]-34 and (y < 21 ):
+            if qr.version >6 and x > img_size-34 and (y < 21 ):
                 continue
-            if qr.version >6 and y > img_enh.size[0]-34 and (x < 21 ):
+            if qr.version >6 and y > img_size-34 and (x < 21 ):
                 continue
             if img_img.getpixel((x,y))[2] == 0:
                 continue
