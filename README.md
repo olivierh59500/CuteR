@@ -54,7 +54,7 @@ arguments:
 usage:
 ```
 CuteR.py [-h] [-o OUTPUT] [-v VERSION] [-e {Q,H,M,L}] [-b BRIGHTNESS]
-                [-c CONTRAST] [-C] [-r R G B]
+                [-c CONTRAST] [-C] [-r R G B] [-g GIF] [-d DURATION] [-m MODIFY]
                 image text
 
 Combine your QR code with custom picture
@@ -78,9 +78,16 @@ optional arguments:
   -C, --colourful       colourful mode
   -r R G B, --rgb R G B
                         color to replace black
+  -g GIF MODE, --gif 
+                        use gif picture 
+  -d DURATION, --duration duration of gif
+                        set duration 
+  
+
 ```
+
 ## Dependencies
-- Python
+- Python  (gif mode only support python2)
 - qrcode
 - PIL or Pillow
 
