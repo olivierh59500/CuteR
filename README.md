@@ -6,8 +6,8 @@ Combine QRCode with picture
 Commands:
 
 ```bash
-python CuteR.py -c 20 -e H -o sample_output.png -v 10 sample_input.png http://www.chinuno.com
-python CuteR.py -C -r 0 100 50 sample_input.png http://www.chinuno.com #colourful mode
+python main.py -c 20 -e H -o sample_output.png -v 10 sample_input.png http://www.chinuno.com
+python main.py -C -r 0 100 50 sample_input.png http://www.chinuno.com #colourful mode
 python main.py -g True -d 0.05 d.gif http://songkaiape.github.io  #GIF mode
 ```
 ### GIF Input
@@ -83,7 +83,8 @@ optional arguments:
                         use gif picture 
   -d DURATION, --duration duration of gif
                         set duration 
-  
+  -m modify.   --modify resize image to middle part
+                        resize image
 
 ```
 
