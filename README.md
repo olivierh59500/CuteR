@@ -9,6 +9,13 @@ Commands:
 python CuteR.py -c 20 -e H -o sample_output.png -v 10 sample_input.png http://www.chinuno.com
 python CuteR.py -C -r 0 100 50 sample_input.png http://www.chinuno.com #colourful mode
 ```
+### GIF Input
+
+![image](/d.gif)
+
+### Output
+
+![image](/qr.gif)
 ### Input
 
 ![image](https://github.com/chinuno-usami/CuteR/raw/master/sample_input.png)
