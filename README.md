@@ -6,9 +6,17 @@ Combine QRCode with picture
 Commands:
 
 ```bash
-python CuteR.py -c 20 -e H -o sample_output.png -v 10 sample_input.png http://www.chinuno.com
-python CuteR.py -C -r 0 100 50 sample_input.png http://www.chinuno.com #colourful mode
+python main.py -c 20 -e H -o sample_output.png -v 10 sample_input.png http://www.chinuno.com
+python main.py -C -r 0 100 50 sample_input.png http://www.chinuno.com #colourful mode
+python main.py -g True -d 0.05 d.gif http://songkaiape.github.io  #GIF mode
 ```
+### GIF Input
+
+![image](/d.gif)
+
+### Output
+
+![image](/qr.gif)
 ### Input
 
 ![image](https://github.com/chinuno-usami/CuteR/raw/master/sample_input.png)
@@ -47,7 +55,7 @@ arguments:
 usage:
 ```
 CuteR.py [-h] [-o OUTPUT] [-v VERSION] [-e {Q,H,M,L}] [-b BRIGHTNESS]
-                [-c CONTRAST] [-C] [-r R G B]
+                [-c CONTRAST] [-C] [-r R G B] [-g GIF] [-d DURATION] [-m MODIFY]
                 image text
 
 Combine your QR code with custom picture
@@ -71,9 +79,17 @@ optional arguments:
   -C, --colourful       colourful mode
   -r R G B, --rgb R G B
                         color to replace black
+  -g GIF MODE, --gif 
+                        use gif picture 
+  -d DURATION, --duration duration of gif
+                        set duration 
+  -m modify.   --modify resize image to middle part
+                        resize image
+
 ```
+
 ## Dependencies
-- Python
+- Python  (gif mode only support python2)
 - qrcode
 - PIL or Pillow
 
