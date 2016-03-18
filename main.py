@@ -52,6 +52,7 @@ if __name__ == "__main__":
         rgb = (0,0,0)
     
     if not args.gif:
+        img=Image.open(img)
         if args.modify:
             width,height=images.size
             box=((width-height)/2,0,(width+height)/2,height)

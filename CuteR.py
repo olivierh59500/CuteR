@@ -44,7 +44,7 @@ def produce(txt,img,ver=5,err_crt = qrcode.constants.ERROR_CORRECT_H,bri = 1.0, 
     img_qr = qr.make_image().convert('RGB')
     if colourful and ( rgb != (0,0,0) ):
         color_replace(img_qr,rgb)
-    img_img = Image.open(img).convert('RGBA')
+    img_img = img.convert('RGBA')
     img_size = None
 
     if img_img.size[0] < img_img.size[1]:
